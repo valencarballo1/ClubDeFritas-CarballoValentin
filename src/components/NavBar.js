@@ -6,7 +6,9 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import logo from '../assets/logo.png'
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import StyledBadge from '@mui/material/Badge';
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
+
 
 export default function NavBar() {
   return (
@@ -25,8 +27,10 @@ export default function NavBar() {
             Hello Guest
           </Typography>
           <Button color="inherit" variant="outlined">Login</Button>
-          <IconButton>
-            <AddShoppingCartIcon aria-label="Show-cart-items"/>
+          <IconButton aria-label="cart">
+            <StyledBadge badgeContent={3} color="secondary">
+              <ShoppingCartCheckoutIcon />
+            </StyledBadge>
           </IconButton>
 
           

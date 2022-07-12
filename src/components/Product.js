@@ -10,7 +10,8 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import accounting from 'accounting';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import ItemCount from './ItemCount';
+
 
 
 
@@ -25,7 +26,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function Product({products : {id, name, img, precio, rating}}) {
+export default function Product({products : {id, name, img, precio, rating, stock}}) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -60,8 +61,12 @@ export default function Product({products : {id, name, img, precio, rating}}) {
       </CardContent>
       <CardActions disableSpacing>
       <IconButton>
-            <AddShoppingCartIcon arial-label="Add to cart" /*onClick={addToBasket}*//>
-          </IconButton>
+          <ItemCount
+            initial={0}
+            stock={stock}
+            onAdd={(n) => alert(`agregados ${n} productos`)}
+          />
+        </IconButton>
         {Array(rating)
             .fill()
             .map((_, i) =>(
